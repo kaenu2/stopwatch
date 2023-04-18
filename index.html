@@ -5,38 +5,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<title>Timer</title>
+	<link rel="stylesheet" href="nullstyle.css">
+	<title>Stopwatch</title>
 </head>
 <body>
-	<div class="app__back-timer back-timer">
-		<div class="back-timer__title">
-			<h1>Timer</h1>
-			<h2>modules</h2>
-			<h3></h3>
-		</div>
-		<div class="back-timer__item">
-			<span id="days">20</span>
-			<p class="back-timer__item-text">
-				Days
-			</p>
-		</div>
-		<div class="back-timer__item">
-			<span id="hourse">24</span>
-			<p class="back-timer__item-text">
-				hours
-			</p>
-		</div>
-		<div class="back-timer__item">
-			<span id="min">60</span>
-			<p class="back-timer__item-text">
-				mins
-			</p>
-		</div>
-		<div class="back-timer__item">
-			<span id="sec">54</span>
-			<p class="back-timer__item-text">
-				secs	
-			</p>
+	<div class="app__stopwatch stopwatch">
+		<div class="stopwatch__content">
+			<div class="stopwatch__group">
+				<div class="stopwatch__bg">
+					<p>
+						<span id="miutes">00</span>:<span id="seconds">00</span>:<span id="ms">00</span>
+					</p>
+				</div>
+				<div class="stopwatch__active-panel">
+					<button class="stopwatch-btn" id="start">Старт</button>
+					<button class="stopwatch-btn" id="stop">Стоп</button>
+					<button class="stopwatch-btn" id="circle">Круг</button>
+					<button class="stopwatch-btn" id="reset">Сброс</button>
+				</div>
+			</div>
+			<div class="stopwatch__circle">
+				<h1 class="stopwatch__item-title">Круги</h1>
+				<ol class="stopwatch__list">
+					<!-- <li>22 : 22 : 22</li> -->
+				</ol>
+			</div>
 		</div>
 	</div>
 	<script src="index.js"></script>

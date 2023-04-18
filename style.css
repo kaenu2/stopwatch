@@ -1,71 +1,81 @@
 body{
-	background-color: #181515;
+	background-color: #c2bfbf;
+	color: #fff;
 }
 
-.app__back-timer {
+.app__stopwatch {
 }
-.back-timer {
+.stopwatch {
+}
+.stopwatch__content {
 	display: flex;
-	align-items: center;
-	gap: 30px;
 	position: absolute;
+	justify-content: space-between;
+	width: 30%;
+	min-height: 300px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	padding: 50px 50px 30px;
 	background-color: #232322;
-	border-radius: 15px;
-	border: 1px solid #000;
+	padding: 30px;
+	border-radius: 10px;
+	border: 1px solid red;
+	-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, .7);
+	-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, .7);
+	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, .7);
+	transition: all 0.3s ease 0s;
 }
-.back-timer__title{
+.stopwatch__group{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	margin-top: -30px;
+	justify-content: space-between;
 }
-
-h1, h2, h3 {
+.stopwatch__bg {
+}
+.stopwatch__bg {
+	font-size: 70px;
+	color: red;
+}
+.stopwatch__bg span{
+	color: #fff;
+}
+.stopwatch__active-panel {
+	display: flex;
+	gap: 10px;
+}
+.stopwatch-btn{
+	padding: 5px 15px;
+	border: 1px solid red;
+	border-radius: 5px;
+	background: none;
 	color: #fff;
 	text-transform: uppercase;
-	margin: 0;
-	padding: 0;
+	transition: all 0.3s ease 0s;
 }
 
-.back-timer__item {
+.stopwatch-btn:hover{
+	transform: translateY(-2px);
+	background-color: red;
+}
+
+.stopwatch__circle{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	text-align: center;
-	text-transform: uppercase;
-	cursor: default;
-	user-select: none;
 }
-.back-timer__item-text{
-	color: #ff8800;
+.stopwatch__item-title{
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 15px;
 }
-
-.back-timer__item > span {
-	font-size: 30px;
-	transition: all 0.3s ease 0s;
-	padding: 10px 15px;
-	position: relative;
+.stopwatch__list {
+}
+.stopwatch__item {
+	font-size: 20px;
+	color: red;
 }
 
-.back-timer__item > span::before,
-.back-timer__item > span::after{
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 25px;
-	background-color: #fff;
-	border: 1px solid #000;
-	z-index: -1;
-}
-.back-timer__item > span::before{
-	top: 0px;
-	left: 0;
-}
-.back-timer__item > span::after{
-	bottom: 2px;
-	left: 0;
-}
+
+
+
+

@@ -1,58 +1,78 @@
-"use strict";
+const stopwatchList = document.querySelector('.stopwatch__list');
 
-const deadLine = "2023-12-31";
+const btnStart = document.getElementById('start');
+const btnStop = document.getElementById('stop');
+const btnCircle = document.getElementById('circle');
+const btnReset = document.getElementById('reset');
 
-const title = document.querySelector('h3');
 
-title.textContent = `${deadLine} dl`;
 
-const getTime = (endtime) => {
-	const total = Date.parse(endtime) - Date.parse(new Date());
-	const days = Math.floor(total / (1000 * 60 * 60 * 24));
-	const hourse = Math.floor(total / ( 1000 * 60 * 60) %  24);
-	const minutes = Math.floor(total / (1000 * 60) % 60);
-	const seconds = Math.floor((total / 1000) % 60);
-	return {
-		total,
-		days,
-		hourse,
-		minutes,
-		seconds,
-	};
-};
+const miutesTime = document.getElementById('miutes');
+const secondsTime = document.getElementById('seconds');
+const msTime = document.getElementById('ms');
+
+let min = 0;
+let sec = 0;
+let ms = 0;
+
+let intervalId;
 
 function getZero(num) {
 	if (num < 10) {
 		return `0${num}`;
+	} else {
+		return num;
 	}
-	return num;
 }
 
 
-const setClock = (endtime) => {
-	const days = document.getElementById('days');
-	const hourse = document.getElementById('hourse');
-	const minutes = document.getElementById('min');
-	const seconds = document.getElementById('sec');
-	const timerId = setInterval(updateClock, 1000);
-
-	updateClock();
-
-	function updateClock() {
-		const t = getTime(endtime);
-		days.innerHTML = getZero(t.days);
-		hourse.innerHTML = getZero(t.hourse);
-		minutes.innerHTML = getZero(t.minutes);
-		seconds.innerHTML = getZero(t.seconds);
-		if (t.total <= 0) {
-			clearInterval(timerId);
+function startStopwatch() {
+	intervalId = setInterval(() => {
+		ms++;
+		if (ms === 100) {
+			ms=0;
+			sec++;
+		} else if (sec === 60) {
+			min++;
 		}
-	}
-};
+		miutesTime.textContent = getZero(min);
+		secondsTime.textContent = getZero(sec);
+		msTime.textContent = getZero(ms);
+	}, 10);
+}
 
-setClock(deadLine);
+function resetStopwatch() {
+	min = 0;
+	sec = 0;
+	ms = 0;
+	miutesTime.textContent = getZero(0);
+	secondsTime.textContent = getZero(0);
+	msTime.textContent = getZero(0);
+	clearInterval(intervalId);
+	stopwatchList.innerHTML = '';
+}
+
+function stopStopwatch() {
+	clearInterval(intervalId);
+}
+
+function circleStopwatch() {
+	const elementLi = document.createElement('li');
+	elementLi.classList.add('stopwatch__item');
+	const a = `${getZero(min)} : ${getZero(sec)} : ${getZero(ms)} `;
+	elementLi.textContent = a;
+	stopwatchList.append(elementLi);
+}
+
+
+btnStart.addEventListener('click', startStopwatch);
+btnReset.addEventListener('click', resetStopwatch);
+btnStop.addEventListener('click', stopStopwatch);
+btnCircle.addEventListener('click', circleStopwatch);
 
 
 
 
-// console.log(getTime(deadLine));
+
+
+
